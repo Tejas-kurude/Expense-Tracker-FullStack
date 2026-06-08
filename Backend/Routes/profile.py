@@ -11,9 +11,9 @@ profilerouter=APIRouter()
 
 
 @profilerouter.get("/profile")
-def profile(id:str,user=Depends(JWTbearer())):
+def profile(user=Depends(JWTbearer())):
     exist = users_collection.find_one({
-        "_id":ObjectId(id)
+        "_id":ObjectId(user["user_id"])
     })
 
     return{

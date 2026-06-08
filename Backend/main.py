@@ -5,9 +5,8 @@ from Routes.profile import profilerouter
 from Authentication.authbearer import JWTbearer
 from Routes.transactions import transactionrouter
 from fastapi.middleware.cors import CORSMiddleware
-
-
-
+from db import users_collection
+from Authentication.authbearer import JWTbearer
 
 
 app=FastAPI()
@@ -32,6 +31,7 @@ def test(user=Depends(JWTbearer())):
         "message":"Working",
         "User_id": user["user_id"]
     }
+
 
 
 
