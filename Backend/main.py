@@ -7,6 +7,7 @@ from Routes.transactions import transactionrouter
 from fastapi.middleware.cors import CORSMiddleware
 from db import users_collection
 from Authentication.authbearer import JWTbearer
+from Models.model import assistantrouter
 
 
 app=FastAPI()
@@ -14,7 +15,7 @@ app.include_router(router=signuprouter)
 app.include_router(router=loginrouter)
 app.include_router(router=transactionrouter)
 app.include_router(router=profilerouter)
-
+app.include_router(router=assistantrouter)
 
 
 app.add_middleware(
